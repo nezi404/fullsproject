@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "npini": "npm init -y",
+    "requirements": "npm install express mongodb nodemon"
   },
   "repository": {
     "type": "git",

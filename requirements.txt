@@ -1,4 +1,4 @@
 "scripts": {
-    "requirements": "npm insta express",
+    "requirements": {"npm install express", "npm install mongodb", "npm init -y", "npm install -D nodemon"}
     "dev": "nodemon index.js"
   }
