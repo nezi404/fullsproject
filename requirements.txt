@@ -1,1 +1,4 @@
-express
+"scripts": {
+    "requirements": "npm insta express",
+    "dev": "nodemon index.js"
+  }
