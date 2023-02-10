@@ -1,7 +1,9 @@
 const express = require("express");
-const {MongoClient} = require("mongodb");
-const URL_DO_DB = "mongodb+srv://admin:C4dqiihlUXHYT7cc@cluster0.03neohq.mongodb.net";
-const NOME_DO_DB = "banco-de-dados-de-passaros";
+const res = require("express/lib/response");
+const {MongoClient, ObjectId} = require("mongodb");
+//const URL_DO_DB = "mongodb+srv://admin:C4dqiihlUXHYT7cc@cluster0.03neohq.mongodb.net";
+const URL_DO_DB = "mongodb+srv://admin:ljL2rpO6CRWEsgm6@cluster0.vkzer9n.mongodb.net";
+const NOME_DO_DB = "bird_db";
 const collection = URL_DO_DB.collection
 
 async function main(){
@@ -9,6 +11,8 @@ async function main(){
 //conectar ao bd, o mongo
 console.log("Comecando a se conctar com o banco de dados");
 const client = await MongoClient.connect(URL_DO_DB);
+const db  = client.db(NOME_DO_DB);
+const collection = db.collection("bird");
 console.log("Conectado com o banco de dados");
 
 const app = express();
@@ -33,26 +37,43 @@ const passaros = ["bem-te-vi", "sabiá", "cambacica"];
 // CRUD -> Lista de informações
 
 // Endpoint Read All -> [GET] /item
-app.get("/passaro", async function (req, res) {
+app.get("/passaros", async function (req, res) {
   const documentos = await collection.find().toArray();
-  res.send(itens);
+  res.send(documentos);
 });
 
+class Teste {
+  constructor() {}
+
+}
 // Endpoint Read Single by ID -> [GET] /item/:id
-app.get("/passaro/:id", function (req, res) {
+// achar oq vem dps o endpoint
+app.get("/passaros/:id", async function (req, res) {
   const id = req.params.id;
-  const passaro = passaros[id - 1];
+  const passaro = await collection.findOne({ _id: new ObjectId(id) });
   res.send(passaro);
 });
 
 // Endpoint Create -> [POST] /item
-app.post("/passaro", function (req, res) {
+app.post("/passaros", async function (req, res) {
   // console.log(req.body);
   const passaro = req.body;
-  passaros.push(passaro.nome);
+  await collection.insertOne(passaro);
   res.send("Item criado com sucesso!");
 });
+//endpoint update -. PUT item/:id
+app.put("/passaros/:id", function (req, res) {
+  const id = req.params.id;
+  const body = req.body;
+  console.log(id, body);
 
+  collection.updateOne({_id: new ObjectId(id)}, {$set: body});
+
+  res.send("FUNcionaa");
+  res.send(body)
+});
+
+// endpoint delete -. [DELETE] /bird/:id
 
 app.listen(3000);
 }
