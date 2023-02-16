@@ -74,7 +74,14 @@ app.put("/passaros/:id", function (req, res) {
 });
 
 // endpoint delete -. [DELETE] /bird/:id
+app.delete("/passaros/:id", async function (req, res) {
+  const id = req.params.id;
 
+  await collection.deleteOne({ _id: new ObjectId(id) });
+
+  res.send("Delete by ID: " + id); 
+  res.send("Resgistro removido com sucesso !");
+});
 app.listen(3000);
 }
 
