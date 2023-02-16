@@ -1,32 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
 
+import './App.css'
+import ReadAll from './components/ReadAll/ReadAll'
+
+/**
+ * Exercício 1:
+ * Dentro do componente ReadAll, crie um div com a classe "Card"
+ * Dentro do Card, exiba uma imagem de qualquer personagem
+ * Além disso, tb exiba o nome da parsonagem
+ * 
+ * OBS: caso vc tenha escolhido algo diferente no backend, pode manter o tema original
+ * Não precisa ser integrado com o Back! Apenas a exibição dos dados no Front.
+ * 
+ * 
+ * Exercício 2 (bônus!):
+ * Pegue o div com a classe "Card" e extraia em um componente JSX, seguindo os mesmos
+ * passos que fizemos para a criação do componente ReadAll
+ */
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ReadAll />
+    
     </div>
   )
 }
