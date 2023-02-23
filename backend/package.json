@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/nezi404/fullsproject#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "mangodb": "^1.0.0",
     "mongodb": "^5.0.1",
+    "node-fetch": "^3.3.0",
     "objectid": "^3.2.1"
   },
   "devDependencies": {

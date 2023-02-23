@@ -1,6 +1,8 @@
 const express = require("express");
 const res = require("express/lib/response");
 const {MongoClient, ObjectId} = require("mongodb");
+const cors = require("cors")
+
 //const URL_DO_DB = "mongodb+srv://admin:C4dqiihlUXHYT7cc@cluster0.03neohq.mongodb.net";
 const URL_DO_DB = "mongodb+srv://admin:ljL2rpO6CRWEsgm6@cluster0.vkzer9n.mongodb.net";
 const NOME_DO_DB = "bird_db";
@@ -19,6 +21,7 @@ const app = express();
 
 // O que vier no body da requisição, está em JSON
 app.use(express.json());
+app.use(cors());
 
 // Endpoint / -> Hello World
 app.get("/", function (req, res) {

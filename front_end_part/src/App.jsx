@@ -43,13 +43,15 @@ export default App*/
 
 import './App.css'
 import ReadAll from './components/ReadAll/ReadAll'
+import Header from './components/Header/Header'
 
 function App() {
   return (
     <div className="App">
       <ReadAll />
+      <Header/>
     </div>
-  )
+  );
 }
 
 export default App
