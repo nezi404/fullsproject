@@ -85,7 +85,12 @@ app.delete("/passaros/:id", async function (req, res) {
   res.send("Delete by ID: " + id); 
   res.send("Resgistro removido com sucesso !");
 });
-app.listen(3000);
+
+const port = process.env.PORT || 3000;
+app.listen(port, function(){
+  console.log("Servidor rodando na porta " + port);
+
+});
 }
 
 main();
