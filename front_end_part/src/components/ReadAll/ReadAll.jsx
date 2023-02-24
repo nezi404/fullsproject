@@ -21,7 +21,9 @@ async function realizaraquisicao(){
 // com put e na barra colocar o9 id, ce consegue adicionar outro atributo ao objeto
 useEffect(function(){
     realizaraquisicao();
-}, )
+}, [] )
+
+
     return <div className="ReadAll">
         {passaros.map(function (item) {
             console.log(passaros)
