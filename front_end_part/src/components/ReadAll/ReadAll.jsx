@@ -9,8 +9,8 @@ function ReadAll() {
     const [passaros, setItems] = useState([]);
 
 async function realizaraquisicao(){
-//        const bd_url = "https://3000-nezi404-fullsproject-lgswjhd3md0.ws-us87.gitpod.io/passaros";
-        const bd_url = "https://bird-show.onrender.com/passaros"
+
+        const bd_url = "API_KEY"
         const response = await fetch(bd_url);
         const data = await response.json();
 
